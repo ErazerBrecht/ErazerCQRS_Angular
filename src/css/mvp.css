@@ -3878,6 +3878,11 @@ table.dataTable-helper td.highlight {
     background-color: transparent;
   }
 }
+.navbar .navbar-brand-img *{
+    color: #f4f4f4;
+    line-height: 50px;
+}
+
 .navbar .navbar-link {
   color: #87a3bc;
 }
