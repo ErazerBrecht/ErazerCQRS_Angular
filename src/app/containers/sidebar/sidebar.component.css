@@ -1,0 +1,36 @@
+:host {
+  height: 100%;
+  display: flex;
+  box-shadow:  0 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 300px;
+    background-color: #ffffff;
+    padding-top: 10px;
+}
+
+.sidebar {
+    padding: 15px 0 100px;
+    margin: 0;
+}
+
+li {
+    padding: 6px 20px;
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.15;
+    text-decoration: none;
+    border-right: 1px solid transparent;
+}
+
+.header {
+    padding: 6px 20px;
+    color: #999999;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: #ffffff;
+}

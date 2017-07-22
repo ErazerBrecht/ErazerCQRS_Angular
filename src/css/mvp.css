@@ -1327,7 +1327,15 @@ fieldset[disabled] .btn-transparent.focus {
 .container {
   position: relative;
 }
+
+.main {
+  display: flex;
+  height: 100%;
+}
+
 .content {
+  padding-top: 40px;
+  padding-bottom: 40px;
   position: relative;
   margin-bottom: 2em;
 }
@@ -1432,6 +1440,13 @@ fieldset[disabled] .btn-transparent.focus {
 }
 /* !Responsive Layout */
 /* ----------------------------------------------- */
+@media (max-width: 1500px) and (min-width: 991px) {
+    .container {
+        margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+
 @media (max-width: 1200px) {
   .layout-stack-lg {
     margin-top: 0;
@@ -1487,6 +1502,10 @@ fieldset[disabled] .btn-transparent.focus {
   }
 }
 @media (max-width: 768px) {
+  .main {
+    display: block;
+  }
+
   .layout-stack-sm {
     margin-top: 0;
   }
@@ -4310,9 +4329,10 @@ fieldset[disabled] .navbar .btn-link:focus {
     width: 225px;
   }
   .mainnav-menu > li {
-    margin-right: 10px;
+    min-width: 100px;
   }
   .mainnav-menu > li > a {
+    text-align: center;
     font-size: 18px;
   }
   .mainnav-menu .mainnav-caret {
@@ -4348,10 +4368,7 @@ fieldset[disabled] .navbar .btn-link:focus {
 body {
   background: #f4f4f4;
 }
-.content {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
+
 .footer {
   padding: 20px 0;
   color: #ffffff;

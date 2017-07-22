@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 // Containers (Smart - components)
 import { NavbarComponent } from './containers/navbar/navbar.component';
 import { AllTicketsComponent } from './containers/all-tickets/all-tickets.component';
+import { SidebarComponent } from './containers/sidebar/sidebar.component';
 
 // Presential Components (Dumb - components)
 import { ListComponent } from './components/list/list.component';
@@ -17,7 +18,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     NavbarComponent,
     AllTicketsComponent,
     ListComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule
