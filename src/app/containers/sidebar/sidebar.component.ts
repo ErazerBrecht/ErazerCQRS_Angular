@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../redux/state/appState';
+import { ToggleSidebar } from '../../redux/actions/sidebar';
 
 @Component({
   selector: 'sidebar',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  isCollapsed$ = this.store.select((state:AppState) => state.collapsableSidebar.isCollapsed);  
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+  }
+
+  toggle() {
+    this.store.dispatch(new ToggleSidebar());
   }
 
 }

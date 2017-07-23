@@ -12,6 +12,10 @@ import { SidebarComponent } from './containers/sidebar/sidebar.component';
 import { ListComponent } from './components/list/list.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
+// State-managment REDUX
+import { StoreModule } from '@ngrx/store';
+import { collapsableSidebarReducer } from './redux/reducers/sidebar.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     SidebarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot({ collapsableSidebar: collapsableSidebarReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

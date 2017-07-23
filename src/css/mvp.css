@@ -1325,6 +1325,8 @@ fieldset[disabled] .btn-transparent.focus {
   z-index: 2;
 }
 .container {
+  padding-right: 40px;
+  padding-left: 40px;
   position: relative;
 }
 
@@ -1440,13 +1442,6 @@ fieldset[disabled] .btn-transparent.focus {
 }
 /* !Responsive Layout */
 /* ----------------------------------------------- */
-@media (max-width: 1500px) and (min-width: 991px) {
-    .container {
-        margin-right: 20px;
-    margin-left: 20px;
-  }
-}
-
 @media (max-width: 1200px) {
   .layout-stack-lg {
     margin-top: 0;
