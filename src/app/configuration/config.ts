@@ -1,0 +1,1 @@
+export const READ_API: string = "http://localhost:5000";

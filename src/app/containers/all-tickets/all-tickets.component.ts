@@ -1,4 +1,11 @@
+import { Store } from "@ngrx/store";
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from "rxjs/Subscription";
+
+import { ITicket } from "../../entities/interfaces/iTicket";
+import { AllTicketsService } from './all-tickets.service'
+import { RootState } from "../../redux/state/rootState";
+import { SetAllTickets } from "../../redux/actions/ticket";
 
 @Component({
   selector: 'all-tickets',
@@ -6,10 +13,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-tickets.component.css']
 })
 export class AllTicketsComponent implements OnInit {
+  // Data
+  tickets$ = this.store.select((state: RootState) => state.tickets);
 
-  constructor() { }
+  // Placeholder to make it possible to unsubscribe the obsevables
+  private subscriptions: Array<Subscription> = [];
+
+  constructor(private service: AllTicketsService, private store: Store<RootState>) { }
 
   ngOnInit() {
+    this.subscriptions.push(this.service.all().subscribe((tickets: Array<ITicket>) => {
+      this.store.dispatch(new SetAllTickets(tickets));
+    }));
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
 }

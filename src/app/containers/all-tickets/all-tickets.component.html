@@ -11,4 +11,9 @@
       </p>
     </div>
   </div>
+
+<h1>Debug</h1>
+  <div *ngFor="let ticket of tickets$ | async ">
+    <pre>{{ticket | json}}</pre>
+  </div>
 </div>
