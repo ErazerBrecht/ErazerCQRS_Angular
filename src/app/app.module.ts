@@ -19,6 +19,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 // State-managment REDUX
 import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './redux/reducers/root.reducer';
+import { LimitToPipe } from './pipes/limit-to.pipe';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,13 @@ import { rootReducer } from './redux/reducers/root.reducer';
     AllTicketsComponent,
     WelcomeComponent,
     SidebarComponent,
-    TicketListComponent
+    TicketListComponent,
+    LimitToPipe
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    StoreModule.forRoot(rootReducer),
+    StoreModule.forRoot(rootReducer)
   ],
   providers: [AllTicketsService],
   bootstrap: [AppComponent]
