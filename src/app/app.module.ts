@@ -12,9 +12,8 @@ import { SidebarComponent } from './containers/sidebar/sidebar.component';
 // Services
 import { AllTicketsService } from './containers/all-tickets/all-tickets.service';
 
-
 // Presential Components (Dumb - components)
-import { ListComponent } from './components/list/list.component';
+import { TicketListComponent } from './components/ticket-list/ticket-list.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
 // State-managment REDUX
@@ -26,9 +25,9 @@ import { rootReducer } from './redux/reducers/root.reducer';
     AppComponent,
     NavbarComponent,
     AllTicketsComponent,
-    ListComponent,
     WelcomeComponent,
-    SidebarComponent
+    SidebarComponent,
+    TicketListComponent
   ],
   imports: [
     BrowserModule,
