@@ -4,6 +4,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+// Routing
+import { routing } from './routes';
+
 // Containers (Smart - components)
 import { NavbarComponent } from './containers/navbar/navbar.component';
 import { AllTicketsComponent } from './containers/all-tickets/all-tickets.component';
@@ -34,7 +37,8 @@ import { LimitToPipe } from './pipes/limit-to.pipe';
   imports: [
     BrowserModule,
     HttpModule,
-    StoreModule.forRoot(rootReducer)
+    StoreModule.forRoot(rootReducer),
+    routing
   ],
   providers: [AllTicketsService],
   bootstrap: [AppComponent]
