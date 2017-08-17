@@ -1,3 +1,62 @@
-<p>
-  create-ticket works!
-</p>
+<div class="row">
+  <div class="portlet portlet-boxed">
+    <div class="portlet-header">
+      <h4 class="portlet-title">
+        Create new ticket
+      </h4>
+    </div>
+    <div class="portlet-body">
+      <form>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="creator">Created by:</label>
+            <input value="Brecht Carlier" disabled type="text" class="form-control" id="creator">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="date">Date:</label>
+            <input value="{{today| date:'dd/MM/yyyy'}}" disabled type="text" class="form-control" id="date">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" id="title">
+        </div>
+
+        <div class="form-group">
+          <label for="title">Type:</label>
+          <select class="form-control" id="type">
+            <option>TODO</option>
+            <option>TODO #2</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label for="description">Description (TODO Markdown):</label>
+          <textarea type="text" rows="10" class="form-control" id="description"></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label>Priority:</label>
+          <div class="radio">
+            <label><input type="radio" name="priority">Low</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="priority">Medium</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="priority">High</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="priority">Critical</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary col-sm-12">Create <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+      </form>
+    </div>
+  </div>
+</div>

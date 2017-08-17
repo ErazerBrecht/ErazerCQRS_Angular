@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-ticket.component.css']
 })
 export class CreateTicketComponent implements OnInit {
+  today = new Date();
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
