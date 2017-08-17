@@ -11,6 +11,7 @@ import { routing } from './routes';
 import { NavbarComponent } from './containers/navbar/navbar.component';
 import { AllTicketsComponent } from './containers/all-tickets/all-tickets.component';
 import { SidebarComponent } from './containers/sidebar/sidebar.component';
+import { CreateTicketComponent } from './containers/create-ticket/create-ticket.component';
 
 // Services
 import { AllTicketsService } from './containers/all-tickets/all-tickets.service';
@@ -32,7 +33,8 @@ import { LimitToPipe } from './pipes/limit-to.pipe';
     WelcomeComponent,
     SidebarComponent,
     TicketListComponent,
-    LimitToPipe
+    LimitToPipe,
+    CreateTicketComponent
   ],
   imports: [
     BrowserModule,
