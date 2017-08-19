@@ -1,7 +1,7 @@
 :host {
   height: 100%;
   display: flex;
-  box-shadow:  0 1px 6px rgba(0, 0, 0, 0.15);
+  position: relative;
 }
 
 .content {
@@ -11,7 +11,9 @@
     width: 300px;
     background-color: #ffffff;
     padding: 0px 20px;
-    transition: width 0.5s;
+    left: 0px;
+    transition: all 0.75s;
+    box-shadow:  0 1px 6px rgba(0, 0, 0, 0.15);
 }
 
 .content h4 {
@@ -20,8 +22,8 @@
 }
 
 .is-collapsed {
-    padding: 0px;
-    width: 0px;
+    left: -300px;  
+    margin-right: -300px; 
 }
 
 .sidebar {
@@ -57,11 +59,7 @@ li {
     left: 300px;
     z-index: 5;
     border-radius: 0px;
-    border: 0px;
-     transition: left 0.5s;
-    
+    border: 0px;   
+    outline:none !important;
 }
 
-.is-collapsed .btn-collapse {
-    left: 0px;
-}

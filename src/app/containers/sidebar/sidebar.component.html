@@ -1,9 +1,9 @@
 <div class="content" [class.is-collapsed]="isCollapsed$|async">
   <button (click)="toggle()" class="btn btn-collapse btn-primary">
-  <i class="fa" [class.fa-chevron-right]="isCollapsed$|async"  [class.fa-chevron-left]="(isCollapsed$|async) === false"></i>
-</button>
+    <i class="fa" [class.fa-chevron-right]="isCollapsed$|async"  [class.fa-chevron-left]="(isCollapsed$|async) === false"></i>
+  </button>
 
-  <div *ngIf="!(isCollapsed$|async)"> <!-- TODO Replace with Template binding -->
+  <div> <!-- TODO Replace with Template binding -->
     <h4>Sidebar</h4>
     <ul class="sidebar">
       <li class="header">Ticket Summary</li>
