@@ -21,7 +21,7 @@
 
         <div class="form-group">
           <label for="title">Title:</label>
-          <input type="text" class="form-control" id="title">
+          <input [(ngModel)]="model.title" name="title" type="text" class="form-control" id="title">
         </div>
 
         <div class="form-group">
@@ -35,28 +35,46 @@
 
         <div class="form-group">
           <label for="description">Description (TODO Markdown):</label>
-          <textarea type="text" rows="10" class="form-control" id="description"></textarea>
+          <textarea  [(ngModel)]="model.description" name="description" type="text" rows="10" class="form-control" id="description"></textarea>
         </div>
 
 
         <div class="form-group">
           <label>Priority:</label>
           <div class="radio">
-            <label><input type="radio" name="priority">Low</label>
+              <label><input type="radio" [(ngModel)]="model.priorityId"  name="priority" value="{{priorityValues.lowest}}" />
+                <b>Lowest:</b> Application or procedure is working fine, however their could be improvement (feedback)
+              </label>
+            </div>
+          <div class="radio">
+            <label><input type="radio" [(ngModel)]="model.priorityId" name="priority" value="{{priorityValues.low}}" />
+              <b>Low:</b> Application or personal procedure unusable, where a workaround is available or a repair is possible.
+            </label>
           </div>
           <div class="radio">
-            <label><input type="radio" name="priority">Medium</label>
+            <label><input type="radio" [(ngModel)]="model.priorityId" name="priority" value="{{priorityValues.medium}}" />
+              <b>Medium:</b> Non-critical function or procedure, unusable or hard to use having an operational impact, but with no direct impact on services availability.
+            </label>
           </div>
           <div class="radio">
-            <label><input type="radio" name="priority">High</label>
+            <label><input type="radio" [(ngModel)]="model.priorityId" name="priority" value="{{priorityValues.high}}" />
+              <b>High:</b> Critical functionality or network access interrupted, degraded or unusable, having a severe impact on services availability.
+            </label>
           </div>
           <div class="radio">
-            <label><input type="radio" name="priority">Critical</label>
+            <label><input type="radio" [(ngModel)]="model.priorityId" name="priority" value="{{priorityValues.highest}}" />
+              <b>Highest:</b> Interruption making a critical functionality inaccessible or a complete network interruption causing a severe impact on services availability.
+            </label>
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary col-sm-12">Create <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+        <button (click)="onSave()" type="submit" class="btn btn-primary col-sm-12">Create <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
       </form>
     </div>
   </div>
+</div>
+
+<div>
+<h1>Debug:</h1>
+{{model | json}}
 </div>

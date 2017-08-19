@@ -1,4 +1,4 @@
-import { ITicket } from "../../entities/interfaces/iTicket";
+import { ITicket } from "../../entities/read/interfaces/iTicket";
 import * as TicketActions from "../actions/ticket";
 
 export function ticketsReducer(state: Array<ITicket> = [], action: TicketActions.Actions): Array<ITicket>

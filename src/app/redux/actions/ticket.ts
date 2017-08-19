@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { ITicket } from "../../entities/interfaces/iticket";
+import { ITicket } from "../../entities/read/interfaces/iticket";
 
 export const ActionTypes = {
     TICKETS_SET_ALL:"TICKETS_SET_ALL"

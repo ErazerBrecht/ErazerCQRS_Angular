@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
@@ -15,6 +16,7 @@ import { CreateTicketComponent } from './containers/create-ticket/create-ticket.
 
 // Services
 import { AllTicketsService } from './containers/all-tickets/all-tickets.service';
+import { CreateTicketService } from './containers/create-ticket/create-ticket.service';
 
 // Presential Components (Dumb - components)
 import { TicketListComponent } from './components/ticket-list/ticket-list.component';
@@ -38,11 +40,12 @@ import { LimitToPipe } from './pipes/limit-to.pipe';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpModule,
     StoreModule.forRoot(rootReducer),
     routing
   ],
-  providers: [AllTicketsService],
+  providers: [AllTicketsService, CreateTicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

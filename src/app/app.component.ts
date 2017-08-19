@@ -2,7 +2,7 @@ import { Store } from "@ngrx/store";
 import { Component } from '@angular/core';
 import { Subscription } from "rxjs/Subscription";
 
-import { ITicket } from "./entities/interfaces/iTicket";
+import { ITicket } from "./entities/read/interfaces/iTicket";
 import { AllTicketsService } from './containers/all-tickets/all-tickets.service'
 import { State } from "./redux/state/state";
 import { SetAllTickets } from "./redux/actions/ticket";

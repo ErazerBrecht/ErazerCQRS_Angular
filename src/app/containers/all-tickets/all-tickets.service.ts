@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Response, Http } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
-import { ITicket } from "../../entities/interfaces/iTicket";
+import { ITicket } from "../../entities/read/interfaces/iTicket";
 import { READ_API } from "../../configuration/config";
 
 @Injectable()
