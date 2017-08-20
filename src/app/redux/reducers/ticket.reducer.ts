@@ -5,9 +5,11 @@ export function ticketsReducer(state: Array<ITicket> = [], action: TicketActions
 {
     switch(action.type)
     {
-        case TicketActions.ActionTypes.TICKETS_SET_ALL:
-            return [...action.payload.tickets];
+        case TicketActions.TICKETS_SET_ALL:
+            return [...action.payload];
+        case TicketActions.ADD_TICKET:
+            return [...state, action.payload];
         default:
-            return state;
+            return state; 
     }
 }

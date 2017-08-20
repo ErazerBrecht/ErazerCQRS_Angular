@@ -27,6 +27,9 @@ import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './redux/reducers/root.reducer';
 import { LimitToPipe } from './pipes/limit-to.pipe';
 
+// Realtime
+import {RealTime} from "./common/realtime";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +48,7 @@ import { LimitToPipe } from './pipes/limit-to.pipe';
     StoreModule.forRoot(rootReducer),
     routing
   ],
-  providers: [AllTicketsService, CreateTicketService],
+  providers: [AllTicketsService, CreateTicketService, RealTime],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

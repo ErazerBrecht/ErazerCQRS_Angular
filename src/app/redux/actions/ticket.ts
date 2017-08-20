@@ -1,18 +1,21 @@
 import { Action } from "@ngrx/store";
 import { ITicket } from "../../entities/read/interfaces/iticket";
 
-export const ActionTypes = {
-    TICKETS_SET_ALL:"TICKETS_SET_ALL"
-}
+export const TICKETS_SET_ALL = "TICKETS_SET_ALL";
+export const ADD_TICKET = "ADD_TICKET";
 
 export class SetAllTickets implements Action {
-    type = ActionTypes.TICKETS_SET_ALL;
-    payload: Readonly<{tickets: ITicket[]}>;
+    readonly type = TICKETS_SET_ALL;
 
-    constructor(tickets: ITicket[]){
-        this.payload = {tickets};
-    }
+    constructor(public payload: ITicket[]) { }
 }
 
-export type Actions = 
-    SetAllTickets;
+export class AddTicket implements Action {
+    readonly type = ADD_TICKET;
+
+    constructor(public payload: ITicket) { }
+}
+
+export type Actions =
+    SetAllTickets
+    | AddTicket;
