@@ -23,7 +23,10 @@ import { TicketListComponent } from './components/ticket-list/ticket-list.compon
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { TicketCreateFormComponent } from './components/ticket-create-form/ticket-create-form.component';
 import { FormGroupTextboxComponent } from './components/form-group-textbox/form-group-textbox.component';
-
+import { FormGroupRadioComponent } from './components/form-group-radio/form-group-radio.component';
+import { FormGroupSelectComponent } from './components/form-group-select/form-group-select.component';
+import { FormGroupMarkdownComponent } from './components/form-group-markdown/form-group-markdown.component';
+import { PrioritySelectorComponent } from './components/priority-selector/priority-selector.component';
 
 // State-managment REDUX
 import { StoreModule } from '@ngrx/store';
@@ -32,10 +35,6 @@ import { LimitToPipe } from './pipes/limit-to.pipe';
 
 // Realtime
 import {RealTime} from "./common/realtime";
-import { FormGroupRadioComponent } from './components/form-group-radio/form-group-radio.component';
-import { PrioritySelectorComponent } from './components/priority-selector/priority-selector.component';
-import { FormGroupSelectComponent } from './components/form-group-select/form-group-select.component';
-import { FormGroupMarkdownComponent } from './components/form-group-markdown/form-group-markdown.component';
 
 @NgModule({
   declarations: [
