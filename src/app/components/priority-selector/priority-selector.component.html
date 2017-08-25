@@ -1,0 +1,27 @@
+<div class="form-group">
+  <label>{{label}}</label>
+
+  <form-group-radio [control]="control" [value]="priorityValues.lowest">
+    <b>Lowest:</b> Application or procedure is working fine, however their could be improvement (feedback)
+  </form-group-radio>
+
+  <form-group-radio [control]="control" [value]="priorityValues.low">
+    <b>Low:</b> Application or personal procedure unusable, where a workaround is available or a repair is possible.
+  </form-group-radio>
+
+  <form-group-radio [control]="control" [value]="priorityValues.medium">
+    <b>Medium:</b> Non-critical function or procedure, unusable or hard to use having an operational impact, but with no
+    direct impact on services availability.
+  </form-group-radio>
+
+  <form-group-radio [control]="control" [value]="priorityValues.high">
+    <b>High:</b> Critical functionality or network access interrupted, degraded or unusable, having a severe impact on services
+    availability.
+  </form-group-radio>
+
+  <form-group-radio [control]="control" [value]="priorityValues.highest">
+    <b>Highest:</b> Interruption making a critical functionality inaccessible or a complete network interruption causing
+    a severe impact on services availability.
+  </form-group-radio>
+
+</div>

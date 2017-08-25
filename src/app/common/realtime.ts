@@ -10,9 +10,9 @@ export class RealTime {
     }
 
     connect(): void {
-        let socket = io(WEBSOCKETS_API);
+        const socket = io(WEBSOCKETS_API);
         socket.emit('add');
-        socket.on("UPDATE_REDUX", action => {debugger; this.store.dispatch(action)});
+        socket.on("UPDATE_REDUX", action => {this.store.dispatch(action)});
     }
 
     // TODO DISCONNECT

@@ -11,19 +11,19 @@ import { Subscription } from "rxjs";
 })
 export class CreateTicketComponent implements OnInit, OnDestroy {
   today = new Date();
-  model = new CreateTicket();
   priorityValues = PriorityValues;
+  typeOptions: string[];
 
   private subscriptions: Array<Subscription> = [];
 
   constructor(private createService: CreateTicketService) { }
 
   ngOnInit() {
-    debugger;
+    this.typeOptions = ["TODO", "TODO #2"];
   }
 
-  onSave(): void {
-    this.subscriptions.push(this.createService.add(this.model).subscribe());
+  onSave(ticket: CreateTicket): void {
+    this.subscriptions.push(this.createService.add(ticket).subscribe());
   }
 
   ngOnDestroy(): void {
