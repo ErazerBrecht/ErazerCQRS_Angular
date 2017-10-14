@@ -13,5 +13,5 @@ export class PrioritySelectorComponent {
   @Input() control: FormControl;
   @Input() label: string;
 
-  readonly priorityValues = PriorityValues;  
+  readonly priorityValues = PriorityValues; 
 }

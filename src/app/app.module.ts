@@ -27,6 +27,7 @@ import { FormGroupRadioComponent } from './components/form-group-radio/form-grou
 import { FormGroupSelectComponent } from './components/form-group-select/form-group-select.component';
 import { FormGroupMarkdownComponent } from './components/form-group-markdown/form-group-markdown.component';
 import { PrioritySelectorComponent } from './components/priority-selector/priority-selector.component';
+import { CommentBoxComponent } from './components/comment-box/comment-box.component';
 
 // State-managment REDUX
 import { StoreModule } from '@ngrx/store';
@@ -35,6 +36,8 @@ import { LimitToPipe } from './pipes/limit-to.pipe';
 
 // Realtime
 import {RealTime} from "./common/realtime";
+import { DetailTicketComponent } from './containers/detail-ticket/detail-ticket.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import {RealTime} from "./common/realtime";
     FormGroupRadioComponent,
     PrioritySelectorComponent,
     FormGroupSelectComponent,
-    FormGroupMarkdownComponent
+    FormGroupMarkdownComponent,
+    DetailTicketComponent,
+    CommentBoxComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

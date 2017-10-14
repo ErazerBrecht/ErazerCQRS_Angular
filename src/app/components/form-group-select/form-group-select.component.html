@@ -2,6 +2,6 @@
   <label for="title">{{label}}</label>
   <select [formControl]="control" class="form-control">
       <option value="" disabled selected hidden>{{placeholder}}</option>
-      <option *ngFor="let option of options" [value]="option">{{option}}</option>
+      <option *ngFor="let option of options" [value]="option.id">{{option.title}}</option>
     </select>
 </div>

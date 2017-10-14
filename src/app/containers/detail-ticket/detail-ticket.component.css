@@ -1,0 +1,15 @@
+:host >>> .CodeMirror
+{
+    height: 200px;
+    min-height: unset;
+}
+
+:host >>> .CodeMirror-scroll
+{
+    min-height: unset;
+}
+
+:host >>> .commentBox .CodeMirror
+{
+    height: 282px;
+}

@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from "@angular/forms";
+import { IOption } from '../../configuration/ioption';
 
 @Component({
   selector: 'form-group-select',
@@ -10,6 +11,6 @@ import { FormControl } from "@angular/forms";
 export class FormGroupSelectComponent {
   @Input() label: string;
   @Input() placeholder: string;
-  @Input() options: string[];
+  @Input() options: Array<IOption>;
   @Input() control: FormControl;
 }
