@@ -1332,14 +1332,6 @@ fieldset[disabled] .btn-transparent.focus {
   flex-direction: column;
 }
 
-@media (max-width: 991px)
-{
-  .container {
-    padding-right: 10px;
-    padding-left: 10px;
-  } 
-}
-
 .main {
   display: flex;
   flex: 1;

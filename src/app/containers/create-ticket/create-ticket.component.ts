@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CreateTicket } from '../../entities/write/createTicket';
 import { CreateTicketService } from './create-ticket.service';
-import { PriorityValues } from '../../configuration/constants';
+import { PriorityValues } from '../../configuration/priorityConstants';
 import { Subscription } from "rxjs";
 
 @Component({

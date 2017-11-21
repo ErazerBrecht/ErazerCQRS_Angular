@@ -1,11 +1,11 @@
 import { ActionReducerMap } from '@ngrx/store';
 
 import { appReducer } from "./app.reducer";
-import { ticketsReducer } from "./ticket.reducer";
 
 import { State } from "../state/state";
+import { dataReducers } from './data.reducer';
 
 export const rootReducer: ActionReducerMap<State> = {
     app: appReducer,
-    tickets: ticketsReducer,
+    data: dataReducers
 };

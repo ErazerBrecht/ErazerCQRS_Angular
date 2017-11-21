@@ -10,7 +10,7 @@ import { State } from "../../redux/state/state";
 })
 export class AllTicketsComponent implements OnInit {
   // Data
-  tickets$ = this.store.select((state: State) => state.tickets);
+  tickets$ = this.store.select((state: State) => state.data.tickets);
 
   constructor(private store: Store<State>) { }
 

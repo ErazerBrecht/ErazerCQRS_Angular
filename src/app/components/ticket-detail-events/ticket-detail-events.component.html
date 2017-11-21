@@ -1,0 +1,66 @@
+<div *ngFor="let event of ticket.events" [ngSwitch]="event.type">
+    <ticket-status-event *ngSwitchCase="1" [event]="event"></ticket-status-event>
+    <ticket-priority-event *ngSwitchCase="2" [event]="event"></ticket-priority-event>
+    <ticket-comment-event *ngSwitchCase="3" [event]="event"></ticket-comment-event>
+  </div>
+
+  <!-- <div class="feed-item feed-item-idea">
+    <div class="feed-icon bg-primary">
+      <i class="fa fa-lightbulb-o"></i>
+    </div>
+
+    <div class="feed-subject">
+      <p>Brecht added a comment</p>
+    </div>
+
+    <div class="feed-content">
+      <ul class="icons-list">
+        <li>
+          <i class="icon-li fa fa-quote-left"></i> TODO
+        </li>
+      </ul>
+    </div>
+
+    <div class="feed-actions">
+      <a href="javascript:;" class="pull-right">
+        <i class="fa fa-clock-o"></i> 2 days ago</a>
+    </div>
+  </div>
+
+  <div class="feed-item feed-item-bookmark">
+    <div class="feed-icon bg-tertiary">
+      <i class="fa fa-bookmark"></i>
+    </div>
+
+    <div class="feed-subject">
+      <p>Brecht changed the status to
+        <b>In Progress</b>
+      </p>
+    </div>
+
+    <div class="feed-content">
+    </div>
+
+    <div class="feed-actions">
+      <a href="javascript:;" class="pull-right">
+        <i class="fa fa-clock-o"></i> 2 days ago</a>
+    </div>
+  </div>
+
+  <div class="feed-item feed-item-bookmark">
+    <div class="feed-icon bg-tertiary">
+      <i class="fa fa-bookmark"></i>
+    </div>
+
+    <div class="feed-subject">
+      <p>Brecht created the ticket</p>
+    </div>
+
+    <div class="feed-content">
+    </div>
+
+    <div class="feed-actions">
+      <a href="javascript:;" class="pull-right">
+        <i class="fa fa-clock-o"></i> 2 days ago</a>
+    </div>
+  </div> -->

@@ -10,13 +10,18 @@ import * as SimpleMDE from 'simplemde';
 export class FormGroupMarkdownComponent implements AfterViewInit {
   @Input() label: string
   @Input() control: FormControl
+  @Input() previewMode: boolean;
   @ViewChild('simplemde') textarea: ElementRef
   private simplemde: SimpleMDE;
 
   constructor() { }
 
   ngAfterViewInit() {
-    this.simplemde = new SimpleMDE({element: this.textarea.nativeElement, spellChecker: false});
+    this.simplemde = new SimpleMDE({ element: this.textarea.nativeElement, spellChecker: false });
+
+    if (this.previewMode) {
+      this.simplemde.togglePreview();
+    }
 
     this.simplemde.codemirror.on('change', () => {
       this.control.patchValue(this.simplemde.value());

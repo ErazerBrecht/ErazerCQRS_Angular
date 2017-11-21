@@ -1,39 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { PriorityValues } from '../../configuration/constants';
-import { IOption } from '../../configuration/ioption';
+import { Observable } from "rxjs/Observable";
+import { Store } from "@ngrx/store";
+import { State } from "../../redux/state/state";
+import * as TicketDetailSelectors from "../../redux/selectors/ticketDetail.selector";
+
+import { Component } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { TicketDetail } from '../../entities/read/ticketDetail';
+import { DetailTicketService } from "./detail-ticket.service";
 
 @Component({
   selector: 'app-detail-ticket',
   templateUrl: './detail-ticket.component.html',
   styleUrls: ['./detail-ticket.component.css']
 })
-export class DetailTicketComponent implements OnInit {
-  typeOptions: Array<IOption>;
-  priorityOptions: Array<IOption>;
-  statusOptions: Array<IOption>;
+export class DetailTicketComponent {
+  id: string = this.route.snapshot.params["id"];
+  ticket$: Observable<TicketDetail> = this.store.select(TicketDetailSelectors.getTicketDetail(this.id));
 
-  statusControl: FormControl;
-  priorityControl: FormControl;
-  typeControl: FormControl;
-  descriptionControl: FormControl;
-
-  constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
-    this.priorityOptions = Object.keys(PriorityValues).map(key => PriorityValues[key]);
-    this.statusOptions = Object.keys(PriorityValues).map(key => PriorityValues[key]);     // TODO StatusOptions
-    this.typeOptions = [{ id: 'AAAA', title: 'TODO1' }, { id: 'BBBB', title: 'TODO2' }]       // TODO TypeOptions
-
-    // TODO Retrieve ticket 
-    this.statusControl = new FormControl('646be77c-bc46-429f-a3ab-ae19516dcb6a');
-    this.priorityControl = new FormControl('7d4b4b49-323b-45e8-9f1a-23ce7592f9f3');
-    this.typeControl = new FormControl('BBBB');
-
-    this.descriptionControl = new FormControl('#This is the description', Validators.required);
+  constructor(private route: ActivatedRoute, private store: Store<State>, private httpSerice: DetailTicketService) {
   }
-
-  handleCommentAdded(comment: string) {
+ 
+  onCommentAdded(comment: string) {
     alert(comment);
   }
+
+  onPriorityChanged(priorityId: string) {
+    this.httpSerice.updatePriority(this.id, priorityId).subscribe();
+  }
+
+  onStatusChanged(statusId: string) {
+    this.httpSerice.updateStatus(this.id, statusId).subscribe();
+  }
+
 }

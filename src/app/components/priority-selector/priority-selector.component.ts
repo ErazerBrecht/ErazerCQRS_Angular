@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from "@angular/forms";
-import { PriorityValues } from '../../configuration/constants';
+import { PriorityValues } from '../../configuration/priorityConstants';
 
 
 @Component({

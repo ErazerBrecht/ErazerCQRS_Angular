@@ -1,0 +1,9 @@
+<ticket-event [event]="event">
+  <div class="icon">
+    <i [ngClass]="icon"></i>
+  </div>
+  <div class="subject">
+    {{event.userName}} added a comment
+  </div>
+  <div class="content">{{event.to}}</div>
+</ticket-event>

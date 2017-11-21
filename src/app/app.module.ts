@@ -2,21 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 
 // Routing
-import { routing } from './routes';
+import { routing } from './routes/routes';
+
+// Guards
+import { TicketDetailGuard } from './routes/guards/ticketDetail.guard';
 
 // Containers (Smart - components)
 import { NavbarComponent } from './containers/navbar/navbar.component';
 import { AllTicketsComponent } from './containers/all-tickets/all-tickets.component';
 import { SidebarComponent } from './containers/sidebar/sidebar.component';
 import { CreateTicketComponent } from './containers/create-ticket/create-ticket.component';
+import { DetailTicketComponent } from './containers/detail-ticket/detail-ticket.component';
 
 // Services
 import { AllTicketsService } from './containers/all-tickets/all-tickets.service';
 import { CreateTicketService } from './containers/create-ticket/create-ticket.service';
+import { DetailTicketService } from './containers/detail-ticket/detail-ticket.service';
 
 // Presential Components (Dumb - components)
 import { TicketListComponent } from './components/ticket-list/ticket-list.component';
@@ -28,6 +34,13 @@ import { FormGroupSelectComponent } from './components/form-group-select/form-gr
 import { FormGroupMarkdownComponent } from './components/form-group-markdown/form-group-markdown.component';
 import { PrioritySelectorComponent } from './components/priority-selector/priority-selector.component';
 import { CommentBoxComponent } from './components/comment-box/comment-box.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { TicketEventComponent } from './components/ticket-event/ticket-event.component';
+import { TicketPriorityEventComponent } from './components/ticket-event/ticket-priority-event/ticket-priority-event.component';
+import { TicketStatusEventComponent } from './components/ticket-event/ticket-status-event/ticket-status-event.component';
+import { TicketCommentEventComponent } from './components/ticket-event/ticket-comment-event/ticket-comment-event.component';
+import { TicketDetailBasicComponent } from './components/ticket-detail-basic/ticket-detail-basic.component';
+import { TicketDetailEventsComponent } from './components/ticket-detail-events/ticket-detail-events.component';
 
 // State-managment REDUX
 import { StoreModule } from '@ngrx/store';
@@ -36,8 +49,6 @@ import { LimitToPipe } from './pipes/limit-to.pipe';
 
 // Realtime
 import {RealTime} from "./common/realtime";
-import { DetailTicketComponent } from './containers/detail-ticket/detail-ticket.component';
-import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -57,17 +68,26 @@ import { FooterComponent } from './components/footer/footer.component';
     FormGroupMarkdownComponent,
     DetailTicketComponent,
     CommentBoxComponent,
-    FooterComponent
+    FooterComponent,
+    TicketEventComponent,
+    TicketStatusEventComponent,
+    TicketCommentEventComponent,
+    TicketDetailBasicComponent,
+    TicketDetailEventsComponent,
+    TicketPriorityEventComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    routing,
     StoreModule.forRoot(rootReducer),
-    routing
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
+    })
   ],
-  providers: [AllTicketsService, CreateTicketService, RealTime],
+  providers: [AllTicketsService, CreateTicketService, DetailTicketService, TicketDetailGuard, RealTime],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

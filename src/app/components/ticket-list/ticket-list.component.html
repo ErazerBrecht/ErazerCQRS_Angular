@@ -15,7 +15,7 @@
     <tbody>
       <tr *ngFor="let ticket of tickets; let i = index;">
         <td>{{i + 1}}</td>
-        <td title="{{ticket.id}}">{{ticket.id | limitTo : 8}}</td>
+        <td title="{{ticket.id}}"><a [routerLink]="['detail', ticket.id]">{{ticket.id | limitTo : 8}}</a></td>
         <td>{{ticket.title}}</td>
         <td>{{ticket.priority.name}}</td>
         <td>{{ticket.status.name}}</td>

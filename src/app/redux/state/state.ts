@@ -1,7 +1,7 @@
 import { AppState } from './appState';
-import { ITicket } from "../../entities/read/interfaces/iticket";
+import { DataState } from './dataState';
 
 export interface State {
   readonly app: AppState;
-  readonly tickets: Array<ITicket>;
+  readonly data: DataState;
 }
