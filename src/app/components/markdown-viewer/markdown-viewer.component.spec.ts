@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormGroupMarkdownComponent } from './form-group-markdown.component';
+import { MarkdownViewerComponent } from './markdown-viewer.component';
 
-describe('FormGroupMarkdownComponent', () => {
-  let component: FormGroupMarkdownComponent;
-  let fixture: ComponentFixture<FormGroupMarkdownComponent>;
+describe('MarkdownViewerComponent', () => {
+  let component: MarkdownViewerComponent;
+  let fixture: ComponentFixture<MarkdownViewerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormGroupMarkdownComponent ]
+      declarations: [ MarkdownViewerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormGroupMarkdownComponent);
+    fixture = TestBed.createComponent(MarkdownViewerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

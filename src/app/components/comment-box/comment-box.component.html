@@ -8,7 +8,7 @@
     <div class="portlet-body">
       <div class="row">
         <form class="col-md-12">
-          <form-group-markdown [control]="commentControl"></form-group-markdown>
+          <form-group-markdown-editor [control]="commentControl"></form-group-markdown-editor>
           <button (click)="addComment()" [disabled]="!commentControl.valid" class="btn btn-default">Add</button>
         </form>
       </div>

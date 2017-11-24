@@ -2,6 +2,7 @@ import { Ticket } from "../../entities/read/ticket";
 import * as TicketActions from "../actions/ticket";
 import * as SharedActions from "../actions/sharedTicket";
 
+// TODO Update EventCount and LastUpdated value!
 export function ticketsReducer(state: Array<Ticket> = [], action: TicketActions.Actions): Array<Ticket>
 {
     switch(action.type)
@@ -11,11 +12,11 @@ export function ticketsReducer(state: Array<Ticket> = [], action: TicketActions.
         case SharedActions.ADD_TICKET:
             return [...state, action.payload.toTicket()];
         case SharedActions.UPDATE_TICKET_STATUS:
-            return state.map(ticket => ticket.id === action.payload.ticketId ? Object.assign({}, ticket, { eventCount: ticket.eventCount++, lastUpdate: action.payload.created, status: action.payload.toStatus}) : ticket);   
+            return state.map(ticket => ticket.id === action.payload.ticketId ? Object.assign({}, ticket, { status: action.payload.toStatus}) : ticket);   
         case SharedActions.UPDATE_TICKET_PRIORITY:
-            return state.map(ticket => ticket.id === action.payload.ticketId ? Object.assign({}, ticket, { eventCount: ticket.eventCount++, lastUpdate: action.payload.created, priority: action.payload.toPriority}) : ticket);
+            return state.map(ticket => ticket.id === action.payload.ticketId ? Object.assign({}, ticket, { priority: action.payload.toPriority}) : ticket);
         case SharedActions.ADD_TICKET_COMMENT:
-            return state.map(ticket => ticket.id === action.payload.ticketId ? Object.assign({}, ticket, { eventCount: ticket.eventCount++, lastUpdate: action.payload.created }) : ticket);  
+            return state.map(ticket => ticket.id === action.payload.ticketId ? Object.assign({}, ticket, { }) : ticket);  
         default:
             return state; 
     }

@@ -6,6 +6,6 @@ export class Ticket {
     title: string;
     priority: Priority;
     status: Status;
-    eventCount: number;
-    lastUpdate: Date;
+    // eventCount: number;
+    // lastUpdate: Date;
 }

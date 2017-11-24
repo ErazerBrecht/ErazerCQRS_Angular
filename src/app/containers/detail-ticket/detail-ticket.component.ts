@@ -21,7 +21,7 @@ export class DetailTicketComponent {
   }
  
   onCommentAdded(comment: string) {
-    alert(comment);
+    this.httpSerice.addComment(this.id, comment).subscribe();
   }
 
   onPriorityChanged(priorityId: string) {

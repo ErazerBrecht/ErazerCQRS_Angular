@@ -31,9 +31,10 @@ import { TicketCreateFormComponent } from './components/ticket-create-form/ticke
 import { FormGroupTextboxComponent } from './components/form-group-textbox/form-group-textbox.component';
 import { FormGroupRadioComponent } from './components/form-group-radio/form-group-radio.component';
 import { FormGroupSelectComponent } from './components/form-group-select/form-group-select.component';
-import { FormGroupMarkdownComponent } from './components/form-group-markdown/form-group-markdown.component';
+import { FormGroupMarkdownEditorComponent } from './components/form-group-markdown-editor/form-group-markdown-editor.component';
 import { PrioritySelectorComponent } from './components/priority-selector/priority-selector.component';
 import { CommentBoxComponent } from './components/comment-box/comment-box.component';
+import { MarkdownViewerComponent } from './components/markdown-viewer/markdown-viewer.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TicketEventComponent } from './components/ticket-event/ticket-event.component';
 import { TicketPriorityEventComponent } from './components/ticket-event/ticket-priority-event/ticket-priority-event.component';
@@ -65,7 +66,7 @@ import {RealTime} from "./common/realtime";
     FormGroupRadioComponent,
     PrioritySelectorComponent,
     FormGroupSelectComponent,
-    FormGroupMarkdownComponent,
+    FormGroupMarkdownEditorComponent,
     DetailTicketComponent,
     CommentBoxComponent,
     FooterComponent,
@@ -74,7 +75,8 @@ import {RealTime} from "./common/realtime";
     TicketCommentEventComponent,
     TicketDetailBasicComponent,
     TicketDetailEventsComponent,
-    TicketPriorityEventComponent
+    TicketPriorityEventComponent,
+    MarkdownViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,7 @@ import {RealTime} from "./common/realtime";
     routing,
     StoreModule.forRoot(rootReducer),
     StoreDevtoolsModule.instrument({
-      maxAge: 25 //  Retains last 25 states
+      maxAge: 50
     })
   ],
   providers: [AllTicketsService, CreateTicketService, DetailTicketService, TicketDetailGuard, RealTime],

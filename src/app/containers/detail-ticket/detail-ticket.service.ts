@@ -15,10 +15,14 @@ export class DetailTicketService {
     }
 
     updatePriority (ticketId: string, priorityId: string){
-        return this.http.put(`${WRITE_API}/ticket/priority`, { ticketId, priorityId });
+        return this.http.patch(`${WRITE_API}/ticket/priority`, { ticketId, priorityId });
     }
 
     updateStatus (ticketId: string, statusId: string){
-        return this.http.put(`${WRITE_API}/ticket/status`, { ticketId, statusId });
+        return this.http.patch(`${WRITE_API}/ticket/status`, { ticketId, statusId });
+    }
+
+    addComment (ticketId: string, comment: string){
+        return this.http.patch(`${WRITE_API}/ticket/comment`, { ticketId, comment });
     }
 }

@@ -21,8 +21,8 @@ export class TicketDetail {
            title: this.title,
            priority: this.priority,
            status: this.status,
-           eventCount: this.events.length,
-           lastUpdate: this.events.reduce((a: IEvent, b: IEvent) => { return a.created > b.created ? a : b;}).created
+           // eventCount: this.events.length,
+           // lastUpdate: this.events.reduce((a: IEvent, b: IEvent) => { return a.created > b.created ? a : b;}).created
         };
 
         return ticket;

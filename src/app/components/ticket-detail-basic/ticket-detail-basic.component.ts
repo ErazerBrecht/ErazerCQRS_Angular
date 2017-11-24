@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { TicketDetail } from '../../entities/read/ticketDetail';
 import { FormControl, Validators } from '@angular/forms';
 import { IOption } from '../../configuration/ioption';
@@ -11,7 +11,7 @@ import { StatusValues } from '../../configuration/statusConstants';
   templateUrl: './ticket-detail-basic.component.html',
   styleUrls: ['./ticket-detail-basic.component.css']
 })
-export class TicketDetailBasicComponent implements OnInit {
+export class TicketDetailBasicComponent implements OnInit, OnChanges {
   @Input() ticket: TicketDetail;
   @Output() priorityUpdated = new EventEmitter();
   @Output() statusUpdated = new EventEmitter();
@@ -25,15 +25,17 @@ export class TicketDetailBasicComponent implements OnInit {
   typeControl: FormControl;
   descriptionControl: FormControl;
   
+  constructor() { 
+    this.statusControl = new FormControl();
+    this.priorityControl = new FormControl();
+    this.typeControl = new FormControl('');      // TODO Type   
+    this.descriptionControl = new FormControl('', Validators.required);   
+  }
+
   ngOnInit(): void {
     this.priorityOptions = Object.keys(PriorityValues).map(key => PriorityValues[key]);
     this.statusOptions = Object.keys(StatusValues).map(key => StatusValues[key]);
     this.typeOptions = [{ id: 'AAAA', title: 'TODO1' }, { id: 'BBBB', title: 'TODO2' }]       // TODO TypeOptions
-
-    this.statusControl = new FormControl(this.ticket.status.id);
-    this.priorityControl = new FormControl(this.ticket.priority.id);
-    this.typeControl = new FormControl('');      // TODO Type
-    this.descriptionControl = new FormControl(this.ticket.description, Validators.required);
 
     this.priorityControl.valueChanges.subscribe(val => {
       this.priorityUpdated.emit(val);
@@ -44,7 +46,10 @@ export class TicketDetailBasicComponent implements OnInit {
     });
   }
 
-  constructor() { 
-
+  ngOnChanges(changes: SimpleChanges){
+      this.statusControl.patchValue((changes.ticket.currentValue as TicketDetail).status.id);
+      this.priorityControl.patchValue((changes.ticket.currentValue as TicketDetail).priority.id);
+      this.descriptionControl.patchValue((changes.ticket.currentValue as TicketDetail).description);
   }
+
 }
