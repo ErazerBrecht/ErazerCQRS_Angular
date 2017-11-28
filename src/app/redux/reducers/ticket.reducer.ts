@@ -1,4 +1,5 @@
 import { Ticket } from "../../entities/read/ticket";
+import { TicketFactory } from "../../entities/read/factories/ticketFactory";
 import * as TicketActions from "../actions/ticket";
 import * as SharedActions from "../actions/sharedTicket";
 
@@ -10,7 +11,7 @@ export function ticketsReducer(state: Array<Ticket> = [], action: TicketActions.
         case TicketActions.TICKETS_SET_ALL:
             return [...action.payload];
         case SharedActions.ADD_TICKET:
-            return [...state, action.payload.toTicket()];
+            return [...state, TicketFactory.BuildFromDetail(action.payload)];
         case SharedActions.UPDATE_TICKET_STATUS:
             return state.map(ticket => ticket.id === action.payload.ticketId ? Object.assign({}, ticket, { status: action.payload.toStatus}) : ticket);   
         case SharedActions.UPDATE_TICKET_PRIORITY:
