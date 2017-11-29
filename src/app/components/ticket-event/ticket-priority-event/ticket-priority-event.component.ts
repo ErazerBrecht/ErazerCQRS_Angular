@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TicketEventComponent } from '../ticket-event.component';
 
 @Component({
@@ -12,7 +12,4 @@ export class TicketPriorityEventComponent extends TicketEventComponent {
     super();
     this.icon = ['fa', 'fa-list-ol'];
  }
-
-  ngOnInit() {
-  }
 }

@@ -12,7 +12,4 @@ export class TicketStatusEventComponent extends TicketEventComponent {
     super();
     this.icon = ['fa', 'fa-tasks'];
  }
-
-  ngOnInit() {
-  }
 }

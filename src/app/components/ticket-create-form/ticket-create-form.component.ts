@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, OnInit, Input, Output, EventEmitter
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { CreateTicket } from '../../entities/write/createTicket';
 import { LOCALE } from '../../configuration/config'
+import { IOption } from '../../configuration/ioption';
 import * as moment from 'moment';
 
 @Component({
@@ -11,13 +12,14 @@ import * as moment from 'moment';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TicketCreateFormComponent implements OnInit {
-  @Input() typeOptions: string;
   @Output() onSave = new EventEmitter<CreateTicket>();
+  typeOptions: Array<IOption>;
   ticketCreateForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.typeOptions = [{ id: 'AAAA', title: 'TODO1' }, { id: 'BBBB', title: 'TODO2' }]       // TODO TypeOptions    
     this.ticketCreateForm = this.formBuilder.group({
       creator: [{ value: 'Brecht Carlier', disabled: true }],
       date: [{value: moment().locale(LOCALE).format('L'), disabled: true}],

@@ -12,7 +12,4 @@ export class TicketCommentEventComponent extends TicketEventComponent {
     super();
     this.icon = ['fa', 'fa-comment'];
  }
-
-  ngOnInit() {
-  }
 }

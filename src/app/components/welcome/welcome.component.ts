@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  comment: string =  "# Test Comment";
-  
   constructor() { }
 
   ngOnInit() {

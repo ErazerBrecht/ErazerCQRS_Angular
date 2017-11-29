@@ -7,12 +7,9 @@ import { IEvent } from '../../entities/read/interfaces/iEvent';
   templateUrl: './ticket-event.component.html',
   styleUrls: ['./ticket-event.component.css']
 })
-export class TicketEventComponent implements OnInit {
+export class TicketEventComponent {
   @Input() event: IEvent;
   protected icon: Array<string>;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 }

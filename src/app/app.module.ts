@@ -40,6 +40,7 @@ import { TicketEventComponent } from './components/ticket-event/ticket-event.com
 import { TicketPriorityEventComponent } from './components/ticket-event/ticket-priority-event/ticket-priority-event.component';
 import { TicketStatusEventComponent } from './components/ticket-event/ticket-status-event/ticket-status-event.component';
 import { TicketCommentEventComponent } from './components/ticket-event/ticket-comment-event/ticket-comment-event.component';
+import { TicketCreatedEventComponent } from './components/ticket-event/ticket-created-event/ticket-created-event.component';
 import { TicketDetailBasicComponent } from './components/ticket-detail-basic/ticket-detail-basic.component';
 import { TicketDetailEventsComponent } from './components/ticket-detail-events/ticket-detail-events.component';
 
@@ -76,7 +77,8 @@ import {RealTime} from "./common/realtime";
     TicketDetailBasicComponent,
     TicketDetailEventsComponent,
     TicketPriorityEventComponent,
-    MarkdownViewerComponent
+    MarkdownViewerComponent,
+    TicketCreatedEventComponent
   ],
   imports: [
     BrowserModule,
