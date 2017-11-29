@@ -13,5 +13,6 @@ export const routes = [
     { path: "tickets", component: AllTicketsComponent },
     { path: "create", component: CreateTicketComponent },
     { path: "tickets/detail/:id", component: DetailTicketComponent, canActivate: [TicketDetailGuard]},
+    { path: "**", redirectTo: "/tickets", pathMatch: 'full'},
 ];
 export const routing = RouterModule.forRoot(routes);
