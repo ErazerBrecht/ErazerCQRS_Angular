@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
@@ -43,6 +43,7 @@ import { TicketCommentEventComponent } from './components/ticket-event/ticket-co
 import { TicketCreatedEventComponent } from './components/ticket-event/ticket-created-event/ticket-created-event.component';
 import { TicketDetailBasicComponent } from './components/ticket-detail-basic/ticket-detail-basic.component';
 import { TicketDetailEventsComponent } from './components/ticket-detail-events/ticket-detail-events.component';
+import { FileComponentComponent } from './components/file-component/file-component.component';
 
 // State-managment REDUX
 import { StoreModule } from '@ngrx/store';
@@ -78,13 +79,14 @@ import {RealTime} from "./common/realtime";
     TicketDetailEventsComponent,
     TicketPriorityEventComponent,
     MarkdownViewerComponent,
-    TicketCreatedEventComponent
+    TicketCreatedEventComponent,
+    FileComponentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     routing,
     StoreModule.forRoot(rootReducer),
     StoreDevtoolsModule.instrument({

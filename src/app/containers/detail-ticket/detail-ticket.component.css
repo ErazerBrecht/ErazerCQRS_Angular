@@ -1,6 +1,6 @@
 :host >>> .CodeMirror
 {
-    height: 200px;
+    height: 220px;
     min-height: unset;
 }
 
@@ -11,5 +11,5 @@
 
 :host >>> .commentBox .CodeMirror
 {
-    height: 282px;
+    height: 302px;
 }

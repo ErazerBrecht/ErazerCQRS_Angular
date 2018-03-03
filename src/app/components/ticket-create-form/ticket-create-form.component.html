@@ -8,7 +8,8 @@
   </div>
 
   <div class="row">
-    <form-group-select [options]="typeOptions" [placeholder]="'Please select a type'" [label]="'Type:'" [control]="ticketCreateForm.controls['type']" class="col-md-12"></form-group-select>
+    <form-group-select [options]="typeOptions" [placeholder]="'Please select a type'" [label]="'Type:'" [control]="ticketCreateForm.controls['type']"
+      class="col-md-12"></form-group-select>
   </div>
 
   <div class="row">
@@ -19,7 +20,14 @@
     <priority-selector [label]="'Priority:'" [control]="ticketCreateForm.controls['priority']" class="col-md-12"></priority-selector>
   </div>
 
+  <div class="form-group row">
+    <div class="col-md-12">
+      <input #file type="file" accept=".jpg,.jpeg,.png" multiple (change)="onfileChange(file.files)" />
+    </div>
+  </div>
+
   <button type="submit" [disabled]="!ticketCreateForm.valid" class="col-xs-12 btn btn-primary btn-lg">
-            Save <i class="fa fa-save"></i>
+    Save
+    <i class="fa fa-save"></i>
   </button>
 </form>
