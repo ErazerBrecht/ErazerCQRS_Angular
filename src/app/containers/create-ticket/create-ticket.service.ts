@@ -12,13 +12,13 @@ export class CreateTicketService {
 
   constructor(private http: HttpClient) { }
 
-  add(ticket: CreateTicket) {
+  add(ticket: CreateTicket): Observable<string> {
     const formData = new FormData();
     Object.keys(ticket).filter(k => k !== CreateTicket.GetPropertyName('files')).forEach(key => formData.append(key, ticket[key]));
 
     for (let i = 0; i < ticket.files.length; i++)
       formData.append("files", ticket.files[i], ticket.files[i].name);
 
-    return this.http.post(`${WRITE_API}/ticket`, formData);
+    return this.http.post<string>(`${WRITE_API}/ticket`, formData);
   }
 }
