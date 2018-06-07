@@ -18,18 +18,29 @@ export class RealTime {
 
     connect(): void {
         this._hubConnection.on('SendAction', (data: string) => {
-            debugger;
             const action = JSON.parse(data);
-            console.log(action);
             this.store.dispatch(action);
+        });
+
+        this._hubConnection.onclose((error: Error) => {
+            console.log('WebSocket connection was closed');
+            
+            if (error)
+                console.log(error.message);
+            else
+                console.log('Unkown reason');
+
+            console.log('Reconnect');
+            this.connect();
         });
 
         this._hubConnection.start()
             .then(() => {
-                console.log('Hub connection started')
+                console.log('Hub connection started');
             })
             .catch(err => {
-                console.log('Error while establishing connection')
+                console.log('Error while establishing connection');
+                setTimeout(() => { this.connect() }, 2000);
             });
     }
 

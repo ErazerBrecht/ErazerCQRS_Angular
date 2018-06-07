@@ -5,10 +5,8 @@ import { CreateTicketService } from './create-ticket.service';
 import { PriorityValues } from '../../configuration/priorityConstants';
 import { State } from '../../redux/state/state';
 import * as TicketDetailSelectors from "../../redux/selectors/ticketDetail.selector";
-import { Subscription } from "rxjs";
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/startWith';
+import { Subscription, Observable, pipe } from 'rxjs';
+import { take, tap, mergeMap, map, startWith } from 'rxjs/operators';
 import { TicketCreateModalComponent } from '../../components/ticket-create-modal/ticket-create-modal.component';
 import { Router } from '@angular/router';
 
@@ -23,7 +21,7 @@ export class CreateTicketComponent {
   today = new Date();
   priorityValues = PriorityValues;
   loaded$: Observable<boolean>;
-  
+
   private id: string;
 
   constructor(private router: Router, private createService: CreateTicketService, private store: Store<State>) { }
@@ -31,14 +29,16 @@ export class CreateTicketComponent {
   onSave(ticket: CreateTicket): void {
     this.modal.show();
 
-    this.loaded$ = this.createService.add(ticket).take(1)
-      .do(id => this.id = id)
-      .mergeMap(id => this.store.select(TicketDetailSelectors.getTicketDetail(id)))
-      .map(t => t !== undefined)
-      .startWith(false);
+    this.loaded$ = this.createService.add(ticket).pipe(
+      take(1),
+      tap<string>(id => this.id = id),
+      mergeMap(id => this.store.select(TicketDetailSelectors.getTicketDetail(id))),
+      map(t => t !== undefined),
+      startWith(false)
+    );
   }
 
-  onRedirectToTicket(){
+  onRedirectToTicket() {
     this.router.navigate(['/tickets/detail', this.id]);
   }
 }

@@ -1,4 +1,4 @@
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { State } from "../../redux/state/state";
 import * as TicketDetailSelectors from "../../redux/selectors/ticketDetail.selector";

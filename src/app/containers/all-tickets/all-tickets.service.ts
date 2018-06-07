@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { READ_API } from "../../configuration/config";
 import { Ticket } from "../../entities/read/ticket";
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AllTicketsService {

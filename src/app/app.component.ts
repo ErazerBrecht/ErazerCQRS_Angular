@@ -1,6 +1,6 @@
 import { Store } from "@ngrx/store";
 import { Component } from '@angular/core';
-import { Subscription } from "rxjs/Subscription";
+import { Subscription } from "rxjs";
 
 import { Ticket } from "./entities/read/ticket";
 import { AllTicketsService } from './containers/all-tickets/all-tickets.service'
