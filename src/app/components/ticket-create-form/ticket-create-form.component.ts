@@ -33,15 +33,14 @@ export class TicketCreateFormComponent implements OnInit {
 
   onfileChange(files: FileList) {
     let validated = false;
-
     const validedFiles = Array.from(files);
 
     if (validedFiles.some(f => f.size > 15728640)) {
       const file = validedFiles.find(f => f.size > 15728640);
       alert("FILE TO BIG " + file.name);
     }
-    else if (validedFiles.some(f => f.type !== "image/png" && f.type !== "image/jpg")) {
-      const file = validedFiles.find(f => f.type !== "image/png" && f.type !== "image/jpg");
+    else if (validedFiles.some(f => f.type !== "image/png" && f.type !== "image/jpg" && f.type !== "image/jpeg")) {
+      const file = validedFiles.find(f => f.type !== "image/png" && f.type !== "image/jpg" && f.type !== "image/jpeg");
       alert("INCORRECT FILE " + file.name);
     }
     else {
